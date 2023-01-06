@@ -1,13 +1,9 @@
 abstract class AreaCalcState {}
 
 class InitialStateByAreaCalc extends AreaCalcState {
-  InitialStateByAreaCalc({
-    required this.a,
-    required this.b,
-  });
+  InitialStateByAreaCalc();
 
-  final num a;
-  final num b;
+
 }
 
 class RectangleAreState extends AreaCalcState {
