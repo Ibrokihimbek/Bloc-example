@@ -29,7 +29,11 @@ class CompanyPage extends StatelessWidget {
                     ? GridView.builder(
                         gridDelegate:
                             const SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 2),
+                          crossAxisCount: 2,
+                          childAspectRatio: 2.5 / 2.8,
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                        ),
                         itemCount: 8,
                         itemBuilder: (BuildContext context, int index) {
                           return Container(
@@ -39,39 +43,45 @@ class CompanyPage extends StatelessWidget {
                             width: 120,
                             height: 180,
                             decoration: BoxDecoration(
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Colors.blue.withOpacity(0.4),
+                                    blurRadius: 4,
+                                    offset: const Offset(8, 8),
+                                  ),
+                                ],
                                 border:
                                     Border.all(width: 1, color: Colors.grey),
                                 borderRadius: BorderRadius.circular(12),
                                 color: Colors.white),
                             child: Column(
                               children: [
-                                Center(
-                                    child: Text(state
-                                        .companys.data[index].carModel
-                                        .toString())),
                                 const SizedBox(
                                   height: 4,
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 1,
-                                  color: Colors.grey,
                                 ),
                                 Container(
                                   width: double.infinity,
                                   height: 143,
                                   decoration: BoxDecoration(
                                     borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(12),
-                                        bottomRight: Radius.circular(12)),
+                                      bottomLeft: Radius.circular(12),
+                                      bottomRight: Radius.circular(12),
+                                    ),
                                     image: DecorationImage(
-                                        image: NetworkImage(state
-                                            .companys.data[index].logo
-                                            .toString()),
+                                        image: NetworkImage(
+                                          state.companys.data[index].logo
+                                              .toString(),
+                                        ),
                                         fit: BoxFit.fill,
                                         scale: 6),
                                   ),
-                                )
+                                ),
+                                const SizedBox(height: 12),
+                                Text(
+                                  state.companys.data[index].carModel
+                                      .toString(),
+                                  style: const TextStyle(fontSize: 18),
+                                ),
                               ],
                             ),
                           );
