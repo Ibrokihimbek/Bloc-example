@@ -1,4 +1,4 @@
-import 'package:bloc_example/screens/upper_case/upper_case_page.dart';
+import 'package:bloc_example/screens/company/company_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: UpperCasePage(),
+      home: CompanyPage(),
     );
   }
 }

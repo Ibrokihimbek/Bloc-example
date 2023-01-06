@@ -4,7 +4,7 @@ import 'package:bloc_example/data/models/my_response/response_model.dart';
 import 'package:dio/dio.dart';
 
 class ApiService extends ApiClient {
-  Future<MyResponse> getAllUsers() async {
+  Future<MyResponse> getAllCompany() async {
     MyResponse myResponse = MyResponse(error: "");
     try {
       Response response = await dio.get(dio.options.baseUrl);
