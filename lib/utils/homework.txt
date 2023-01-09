@@ -1,0 +1,10 @@
+Berilgan https://easyenglishuzb.free.mockoapp.net/companies api dan car companylar listi keladi.
+         https://easyenglishuzb.free.mockoapp.net/companies/id api dan esa company haqida detailed 
+         ma'lumotlar keladi.
+ 
+1) Yuqoridagi 2 ta api alohida alohida qilib local bloc bilan chaqirilsin.
+2) Cubit emas to'liq blocdan foydalanilsin. 
+3) Shu projectda app level tashkil qilinsin, unda MultiRepository yozilib ichida Repository klasi
+   register qilinsin. 
+4) Local bloclar uchun yuqorida register qilingan bitta Repository instace conext ishlatilsin. 
+5) AppBlocObserver ham yozilsin. bloclardagi jarayonni kuzatib xulosalar olinsin.

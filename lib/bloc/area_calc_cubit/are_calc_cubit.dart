@@ -1,6 +1,6 @@
 import 'dart:math';
 
-import 'package:bloc_example/bloc/area_calc/area_calc_stae.dart';
+import 'package:bloc_example/bloc/area_calc_cubit/area_calc_stae.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AreaCalcCubit extends Cubit<AreaCalcState> {

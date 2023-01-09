@@ -1,5 +1,5 @@
-import 'package:bloc_example/bloc/upper_case/upper_case_cubit.dart';
-import 'package:bloc_example/bloc/upper_case/upper_case_state.dart';
+import 'package:bloc_example/bloc/upper_case_cubit/upper_case_cubit.dart';
+import 'package:bloc_example/bloc/upper_case_cubit/upper_case_state.dart';
 import 'package:bloc_example/screens/area_calc/area_calc_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

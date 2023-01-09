@@ -1,5 +1,5 @@
-import 'package:bloc_example/bloc/company/company_cubit.dart';
-import 'package:bloc_example/bloc/company/compny_state.dart';
+import 'package:bloc_example/bloc/company_cubit/company_cubit.dart';
+import 'package:bloc_example/bloc/company_cubit/compny_state.dart';
 import 'package:bloc_example/utils/toast_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

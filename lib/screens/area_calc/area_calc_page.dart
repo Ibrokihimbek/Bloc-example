@@ -1,5 +1,5 @@
-import 'package:bloc_example/bloc/area_calc/are_calc_cubit.dart';
-import 'package:bloc_example/bloc/area_calc/area_calc_stae.dart';
+import 'package:bloc_example/bloc/area_calc_cubit/are_calc_cubit.dart';
+import 'package:bloc_example/bloc/area_calc_cubit/area_calc_stae.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

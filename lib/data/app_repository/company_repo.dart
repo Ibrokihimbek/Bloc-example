@@ -6,7 +6,9 @@ class CompanyRepo {
 
   final ApiService apiService;
 
-  Future<MyResponse> getCompany() =>
-      apiService.getAllCompany();
+  Future<MyResponse> getCompany() => apiService.getAllCompany();
 
+  Future<MyResponse> getSingleCompany(int id) =>
+      apiService.getSingleCompanyById(id);
+      
 }

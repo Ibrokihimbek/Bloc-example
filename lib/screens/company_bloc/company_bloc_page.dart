@@ -1,27 +1,24 @@
-import 'package:bloc_example/bloc/company/company_cubit.dart';
-import 'package:bloc_example/bloc/company/compny_state.dart';
-import 'package:bloc_example/data/api_service/api_service.dart';
+import 'package:bloc_example/bloc/company_bloc/companies_event.dart';
+import 'package:bloc_example/bloc/company_bloc/company_bloc.dart';
+import 'package:bloc_example/bloc/company_cubit/compny_state.dart';
 import 'package:bloc_example/data/app_repository/company_repo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class CompanyPage extends StatelessWidget {
-  const CompanyPage({super.key});
+class ComapniesBlocPage extends StatelessWidget {
+  const ComapniesBlocPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    CompanyCubit companyCubit = CompanyCubit(
-      CompanyRepo(
-        apiService: ApiService(),
-      ),
-    );
     return BlocProvider(
-      create: (context) => companyCubit,
-      child: BlocBuilder<CompanyCubit, CompanyState>(
+      create: (context) =>
+          CompaniesBloc(companyRepo: context.read<CompanyRepo>())
+            ..add(FetchAllCompanies()),
+      child: BlocBuilder<CompaniesBloc, CompanyState>(
         builder: (context, state) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Company'),
+              title: const Text('Company Block'),
             ),
             body: state is LoadCompanysInProgress
                 ? const Center(child: CircularProgressIndicator())

@@ -1,4 +1,4 @@
-import 'package:bloc_example/bloc/company/compny_state.dart';
+import 'package:bloc_example/bloc/company_cubit/compny_state.dart';
 import 'package:bloc_example/data/app_repository/company_repo.dart';
 import 'package:bloc_example/data/models/my_response/response_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
