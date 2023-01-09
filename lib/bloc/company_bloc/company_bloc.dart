@@ -8,7 +8,6 @@ class CompaniesBloc extends Bloc<CompanyEvent, CompanyState> {
   final CompanyRepo companyRepo;
   CompaniesBloc({required this.companyRepo}) : super(InitialCompanysState()) {
     on<FetchAllCompanies>(_fetchCompanies);
-    on<FetchSingleCompany>(_fetchSingleCompany);
   }
 
   _fetchCompanies(FetchAllCompanies event, Emitter<CompanyState> emit) async {
@@ -18,19 +17,6 @@ class CompaniesBloc extends Bloc<CompanyEvent, CompanyState> {
       emit(LoadCompanysInSuccess(companys: myResponse.data));
     } else {
       emit(LoadCompanyssInFailure(errorText: myResponse.error));
-    }
-  }
-
-  _fetchSingleCompany(FetchSingleCompany event, Emitter<CompanyState> emit) async {
-    //loading
-    emit(LoadCompanyInProgress());
-    MyResponse myResponse = await companyRepo.getSingleCompany(event.id);
-    if (myResponse.error.isEmpty) {
-      //success
-      emit(LoadCompanyInSuccess(singleCompany:  myResponse.data));
-    } else {
-      //error
-      emit(LoadCompanyInFoilure(errorText: myResponse.error));
     }
   }
 }

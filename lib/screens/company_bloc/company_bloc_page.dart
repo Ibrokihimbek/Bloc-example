@@ -2,6 +2,7 @@ import 'package:bloc_example/bloc/company_bloc/companies_event.dart';
 import 'package:bloc_example/bloc/company_bloc/company_bloc.dart';
 import 'package:bloc_example/bloc/company_cubit/compny_state.dart';
 import 'package:bloc_example/data/app_repository/company_repo.dart';
+import 'package:bloc_example/screens/company_bloc/single_company_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,53 +34,65 @@ class ComapniesBlocPage extends StatelessWidget {
                         ),
                         itemCount: 8,
                         itemBuilder: (BuildContext context, int index) {
-                          return Container(
-                            padding: const EdgeInsets.only(top: 4),
-                            margin: const EdgeInsets.only(
-                                top: 6, left: 4, right: 4, bottom: 2),
-                            width: 120,
-                            height: 180,
-                            decoration: BoxDecoration(
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.blue.withOpacity(0.4),
-                                    blurRadius: 4,
-                                    offset: const Offset(8, 8),
+                          return InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => SingleCompanyBlocPage(
+                                    id: state.companys.data[index].id,
+                                  ),
+                                ),
+                              );
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.only(top: 4),
+                              margin: const EdgeInsets.only(
+                                  top: 6, left: 4, right: 4, bottom: 2),
+                              width: 120,
+                              height: 180,
+                              decoration: BoxDecoration(
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.blue.withOpacity(0.4),
+                                      blurRadius: 4,
+                                      offset: const Offset(8, 8),
+                                    ),
+                                  ],
+                                  border:
+                                      Border.all(width: 1, color: Colors.grey),
+                                  borderRadius: BorderRadius.circular(12),
+                                  color: Colors.white),
+                              child: Column(
+                                children: [
+                                  const SizedBox(
+                                    height: 4,
+                                  ),
+                                  Container(
+                                    width: double.infinity,
+                                    height: 143,
+                                    decoration: BoxDecoration(
+                                      borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(12),
+                                        bottomRight: Radius.circular(12),
+                                      ),
+                                      image: DecorationImage(
+                                          image: NetworkImage(
+                                            state.companys.data[index].logo
+                                                .toString(),
+                                          ),
+                                          fit: BoxFit.fill,
+                                          scale: 6),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 12),
+                                  Text(
+                                    state.companys.data[index].carModel
+                                        .toString(),
+                                    style: const TextStyle(fontSize: 18),
                                   ),
                                 ],
-                                border:
-                                    Border.all(width: 1, color: Colors.grey),
-                                borderRadius: BorderRadius.circular(12),
-                                color: Colors.white),
-                            child: Column(
-                              children: [
-                                const SizedBox(
-                                  height: 4,
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  height: 143,
-                                  decoration: BoxDecoration(
-                                    borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(12),
-                                      bottomRight: Radius.circular(12),
-                                    ),
-                                    image: DecorationImage(
-                                        image: NetworkImage(
-                                          state.companys.data[index].logo
-                                              .toString(),
-                                        ),
-                                        fit: BoxFit.fill,
-                                        scale: 6),
-                                  ),
-                                ),
-                                const SizedBox(height: 12),
-                                Text(
-                                  state.companys.data[index].carModel
-                                      .toString(),
-                                  style: const TextStyle(fontSize: 18),
-                                ),
-                              ],
+                              ),
                             ),
                           );
                         },
