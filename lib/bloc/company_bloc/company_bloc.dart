@@ -20,3 +20,4 @@ class CompaniesBloc extends Bloc<CompanyEvent, CompanyState> {
     }
   }
 }
+
